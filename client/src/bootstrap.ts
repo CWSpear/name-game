@@ -17,13 +17,13 @@ import {App} from './app/app';
  * our Services and Providers into Angular's dependency injection
  */
 export function main() {
-  return bootstrap(App, [
-    // These are dependencies of our App
-    HTTP_PROVIDERS,
-    ROUTER_PROVIDERS,
-    ELEMENT_PROBE_PROVIDERS
-  ])
-  .catch(err => console.error(err));
+    return bootstrap(App, [
+        // These are dependencies of our App
+        HTTP_PROVIDERS,
+        ROUTER_PROVIDERS,
+        ELEMENT_PROBE_PROVIDERS
+    ])
+    .catch(err => console.error(err));
 }
 
 document.addEventListener('DOMContentLoaded', main);

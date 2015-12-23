@@ -5,20 +5,20 @@ import {Http} from 'angular2/http';
 import {Title} from '../providers/title';
 
 @Component({
-  selector: 'home',
-  directives: [ FORM_DIRECTIVES ],
-  providers: [ Title ],
-  pipes: [],
-  styles: [ require('./home.css') ],
-  template: require('./home.html')
+    selector: 'home',
+    directives: [ FORM_DIRECTIVES ],
+    providers: [ Title ],
+    pipes: [],
+    styles: [ require('./home.css') ],
+    template: require('./home.html')
 })
 export class Home {
-  // TypeScript public modifiers
-  constructor(public title: Title, public http: Http) {
-  }
+    // TypeScript public modifiers
+    constructor(public title: Title, public http: Http) {
+    }
 
-  ngOnInit() {
-    console.log('hello Home');
-  }
+    ngOnInit() {
+        console.log('hello Home');
+    }
 
 }

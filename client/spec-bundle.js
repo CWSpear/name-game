@@ -26,8 +26,8 @@ require('angular2/testing');
   any file that ends with spec.js and get its path. By passing in true
   we say do this recursively
 */
-var testContext = require.context('./test', true, /\.spec\.ts/);
-var appContext = require.context('./src', true, /\.spec\.ts/);
+const testContext = require.context('./test', true, /\.spec\.ts/);
+const appContext = require.context('./src', true, /\.spec\.ts/);
 
 // get all the files, for each file, call the context function
 // that will require the file and load it up here. Context will
@@ -37,5 +37,5 @@ testContext.keys().forEach(testContext);
 
 // Select BrowserDomAdapter.
 // see https://github.com/AngularClass/angular2-webpack-starter/issues/124
-var domAdapter = require('angular2/src/platform/browser/browser_adapter');
+const domAdapter = require('angular2/src/platform/browser/browser_adapter');
 domAdapter.BrowserDomAdapter.makeCurrent();

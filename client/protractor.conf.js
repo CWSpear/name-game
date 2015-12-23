@@ -1,36 +1,36 @@
 // @AngularClass
 
 exports.config = {
-  baseUrl: 'http://localhost:3000/',
+    baseUrl: 'http://localhost:3000/',
 
-  specs: [
-    'test/**/*.e2e.js'
-  ],
-  exclude: [],
+    specs: [
+        'test/**/*.e2e.js'
+    ],
+    exclude: [],
 
-  framework: 'jasmine',
+    framework: 'jasmine',
 
-  allScriptsTimeout: 110000,
+    allScriptsTimeout: 110000,
 
-  jasmineNodeOpts: {
-    showTiming: true,
-    showColors: true,
-    isVerbose: false,
-    includeStackTrace: false,
-    defaultTimeoutInterval: 400000
-  },
-  directConnect: true,
+    jasmineNodeOpts: {
+        showTiming: true,
+        showColors: true,
+        isVerbose: false,
+        includeStackTrace: false,
+        defaultTimeoutInterval: 400000
+    },
+    directConnect: true,
 
-  capabilities: {
-    'browserName': 'chrome',
-    'chromeOptions': {
-      'args': ['show-fps-counter=true']
-    }
-  },
+    capabilities: {
+        'browserName': 'chrome',
+        'chromeOptions': {
+            'args': ['show-fps-counter=true']
+        }
+    },
 
-  onPrepare: function() {
-    browser.ignoreSynchronization = true;
-  },
+    onPrepare: function () {
+        browser.ignoreSynchronization = true;
+    },
 
 
   /**
@@ -40,5 +40,5 @@ exports.config = {
    * `rootEl`
    *
    */
-   useAllAngular2AppRoots: true
+    useAllAngular2AppRoots: true
 };
