@@ -16,3 +16,4 @@ import 'angular2/http';
 import 'rxjs';
 
 // Other vendors for example jQuery or Lodash
+// import 'jquery/dist/jquery';

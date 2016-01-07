@@ -6,6 +6,8 @@ import {ELEMENT_PROBE_PROVIDERS} from 'angular2/platform/common_dom';
 import {ROUTER_PROVIDERS} from 'angular2/router';
 import {HTTP_PROVIDERS} from 'angular2/http';
 
+require('./styles/bootstrap.scss');
+
 /*
  * App Component
  * our top level component that holds all of our components

@@ -15,44 +15,11 @@ import {Home} from './home/home';
  * Top Level Component
  */
 @Component({
-    // The selector is what angular internally uses
-    // for `document.querySelectorAll(selector)` in our index.html
-    // where, in this case, selector is the string 'app'
     selector: 'app', // <app></app>
-    // We need to tell Angular's Dependency Injection which providers are in our app.
-    providers: [ FORM_PROVIDERS, Title],
-    // We need to tell Angular's compiler which directives are in our template.
-    // Doing so will allow Angular to attach our behavior to an element
-    directives: [ ROUTER_DIRECTIVES, XLarge ],
-    // We need to tell Angular's compiler which custom pipes are in our template.
+    providers: [FORM_PROVIDERS, Title],
+    directives: [ROUTER_DIRECTIVES, XLarge],
     pipes: [],
-    // Our list of styles in our component. We may add more to compose many styles together
-    styles: [`
-        .title {
-            font-family: Arial, Helvetica, sans-serif;
-        }
-        main {
-            padding: 1em;
-        }
-
-    `],
-    // Every Angular template is first compiled by the browser before Angular runs it's compiler
-    template: `
-        <header>
-            <h1 class="title">Hello {{ title.value }}</h1>
-            <nav>
-                <a [routerLink]=" ['Home'] ">Home</a>
-            </nav>
-        </header>
-
-        <main>
-            <router-outlet></router-outlet>
-        </main>
-
-        <footer x-large>
-            WebPack Angular 2 Starter by <a [href]="url">@AngularClass</a>
-        </footer>
-    `
+    template: require('./template.html')
 })
 @RouteConfig([
     { path: '/', component: Home, name: 'Home' }
