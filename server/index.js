@@ -15,10 +15,8 @@ const app = feathers()
     // Turn on URL-encoded parser for REST services
     .use(bodyParser.urlencoded({ extended: true }));
 
-// Create an in-memory Feathers service with a default page size of 2 items
-// and a maximum size of 4
 app.use('/games', memory());
-app.use('/games/:gameId/players', memory());
+app.use('/players', memory());
 
 // Create a dummy Todo
 app.service('games').create({
@@ -26,13 +24,6 @@ app.service('games').create({
     name: 'First Game',
 }).then(game => {
     console.log('created game', game);
-});
-
-app.service('games/1/players').create({
-    id: 1,
-    name: 'First Player',
-}).then(player => {
-    console.log('created player', player);
 });
 
 // Start the server.

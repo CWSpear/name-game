@@ -14,7 +14,10 @@
         <div class="col-xs-12 col-md-6">
             <h2>Join Existing Game</h2>
 
-            <div *ngFor="#games of gamess">{{ games.name }}</div>
+            <div *ngFor="#game of games">
+                {{ game.name }}
+                {{ game.isCurrentUserOwner() }}
+            </div>
         </div>
 
         <div class="col-xs-12 col-md-6">
@@ -23,7 +26,7 @@
             <form (submit)="createNewGame(gameName)">
                 <div class="form-group label-floating">
                     <label for="gameName">Game Name</label>
-                    <input type="text" #gameName class="form-control" id="gameName" autocomplete="off" />
+                    <input type="text" #gameName class="form-control" id="gameName" autocomplete="off"/>
                 </div>
 
                 <button type="submit" class="btn btn-raised btn-primary">Submit</button>

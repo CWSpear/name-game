@@ -9,9 +9,9 @@ const socket = io('http://localhost:3030');
 const api = feathers().configure(feathers.socketio(socket));
 
 export default class LiveList {
-    private api:any;
+    private api: any;
 
-    constructor(private resource:String, public list:Array<any> = null) {
+    constructor(private resource: string, public list: any[] = null) {
         this.resource = resource;
         this.api = new api.Service(resource, api);
 
@@ -56,18 +56,18 @@ export default class LiveList {
 }
 
 // helper funtions
-function removeItem(array: Array<any>, item: any) {
+function removeItem(array: any[], item: any) {
     const index = indexById(array, item);
     if (index !== -1) return array.splice(index, 1)[0];
 }
 
-function updateItem(array: Array<any>, item: any) {
+function updateItem(array: any[], item: any) {
     var index = indexById(array, item);
 
     if (index !== -1) array[index] = clone(item);
 }
 
-function indexById(array: Array<any>, id: any) {
+function indexById(array: any[], id: any) {
     if (id.id) id = id.id;
 
     var index = -1;

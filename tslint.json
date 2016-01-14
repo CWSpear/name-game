@@ -50,6 +50,16 @@
       "check-operator",
       "check-separator",
       "check-type"
+    ],
+    "typedef-whitespace": [
+      true,
+      {
+        "call-signature": "space",
+        "index-signature": "space",
+        "parameter": "space",
+        "property-declaration": "space",
+        "variable-declaration": "space"
+      }
     ]
   }
 }

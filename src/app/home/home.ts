@@ -4,7 +4,8 @@ import {Http} from 'angular2/http';
 
 import {Title} from '../providers/title';
 
-import LiveList from '../lib/live-list';
+import GameList from '../game/game-list';
+import Game from '../game/game-model';
 
 const uuid = require('node-uuid');
 
@@ -17,17 +18,20 @@ const uuid = require('node-uuid');
     template: require('./home.html')
 })
 export class Home {
-    games:any = [];
-
     // TypeScript public modifiers
-    constructor(public title: Title, public http: Http) {
-        this.games = new LiveList('games');
-    }
+    constructor(public games:GameList) {}
 
     createNewGame(input) {
-        this.games.create({
+        this.games.create(new Game({
             id: uuid.v4(),
             name: input.value,
-        }).then(() => input.value = '');
+        })).then(game => {
+            input.value = '';
+            this.games.addToGamesOwned(game.id);
+        });
+    }
+
+    isOwner(id: String) {
+        return this.games.isOwner(id);
     }
 }
