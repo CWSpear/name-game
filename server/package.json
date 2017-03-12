@@ -1,0 +1,50 @@
+{
+  "name": "name-game-server",
+  "description": "Server for the Name Game",
+  "version": "0.0.0",
+  "homepage": "",
+  "main": "src/",
+  "keywords": [
+    "feathers"
+  ],
+  "license": "MIT",
+  "repository": {},
+  "author": {},
+  "contributors": [],
+  "bugs": {},
+  "engines": {
+    "node": ">= 4.6"
+  },
+  "scripts": {
+    "jshint": "jshint src/. test/. --config",
+    "watch": "nodemon --watch 'src/**/*.ts' --ignore 'src/**/*.spec.ts' --exec 'ts-node' src/index.ts",
+    "start": "npm run serve",
+    "build": "tsc src/index.ts",
+    "serve": "node dist/index"
+  },
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "compression": "^1.6.2",
+    "cors": "^2.8.1",
+    "feathers": "^2.1.1",
+    "feathers-authentication": "^0.7.12",
+    "feathers-configuration": "^0.4.1",
+    "feathers-errors": "^2.6.1",
+    "feathers-hooks": "^1.8.1",
+    "feathers-rest": "^1.7.1",
+    "feathers-sequelize": "^1.4.1",
+    "feathers-socketio": "^1.5.2",
+    "pg": "^6.1.4",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^3.30.2"
+  },
+  "devDependencies": {
+    "@types/body-parser": "^1.16.0",
+    "@types/cors": "^2.8.1",
+    "@types/node": "^7.0.8",
+    "@types/sequelize": "^4.0.46",
+    "nodemon": "^1.11.0",
+    "ts-node": "^2.1.0",
+    "typescript": "^2.2.1"
+  }
+}

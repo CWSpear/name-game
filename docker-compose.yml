@@ -1,0 +1,10 @@
+version: '2'
+
+services:
+  database:
+    image: postgres
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: namegame
+      POSTGRES_PASSWORD: 02892gfh20-rikjfg2023ifri2
