@@ -1,4 +1,13 @@
-<h1>
-  {{title}}
-</h1>
-<router-outlet></router-outlet>
+<md-toolbar>
+  <md-icon class="home-icon" [routerLink]="'/'">home</md-icon>
+  Name Game
+</md-toolbar>
+
+<div class="page-loading" *ngIf="loading">
+  <!-- show something fancy here, here with Angular 2 Material's loading bar or circle -->
+  <md-progress-spinner mode="indeterminate"></md-progress-spinner>
+</div>
+
+<div [hidden]="loading">
+  <router-outlet></router-outlet>
+</div>

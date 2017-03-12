@@ -1,6 +1,8 @@
+
 <form (ngSubmit)="createGame(gameName.value)">
-  <label for="name">
-    <input type="text" id="name" name="game" #gameName />
-  </label>
-  <button type="submit">Submit</button>
+  <md-input-container>
+    <input mdInput type="text" placeholder="Name the game" name="game" #gameName />
+  </md-input-container>
+
+  <button md-raised-button color="accent" type="submit">Submit</button>
 </form>

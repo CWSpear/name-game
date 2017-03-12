@@ -3,7 +3,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import * as Bluebird from 'bluebird';
 
 import { IGame, IPlayer } from '../../../types';
-import { gameService, playerService } from '../../models';
 import { UserService } from '../services/user/user.service';
 import { GameService } from '../services/models/game/game.service';
 import { CurrentGame } from '../services/current-game/current-game.service';
@@ -38,19 +37,15 @@ export class GameComponent implements OnInit {
     return this.currentPlayers.players;
   }
 
-  async ngOnInit() {
-    const id = this.route.snapshot.params['id'];
-    await this.gameService.setCurrentGameId(id);
-    await this.playerService.setCurrentGameId(id);
-  }
+  async ngOnInit() {}
 
   async addPlayer(field) {
-    await playerService.create(<IPlayer>{ name: field.value, gameId: this.game.id });
+    await this.playerService.create(<IPlayer>{ name: field.value, gameId: this.game.id });
     field.value = '';
   }
 
   async startGame() {
-    await gameService.patch(this.game.id, { started: true });
+    await this.gameService.patch(this.game.id, { started: true });
 
     await this.router.navigate(['play'], { relativeTo: this.route });
   }

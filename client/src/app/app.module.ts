@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { CommonModule } from '@angular/common';
+import { MaterialModule } from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +19,10 @@ import { CurrentGame } from './services/current-game/current-game.service';
 import { FeathersService } from './services/feathers/feathers.service';
 import { CurrentPlayers } from './services/current-players/current-players.service';
 import { RedirectDirective } from './directives/redirect/redirect.directive';
+import { GamesResolver } from './services/resolvers/games-resolver/games-resolver.service';
+import { GameResolver } from './services/resolvers/game-resolver/game-resolver.service';
+import { PlayersResolver } from './services/resolvers/players-resolver/players-resolver.service';
+import { GameStartedGuard } from './services/guards/game-started-guard/game-started-guard.service';
 
 @NgModule({
   imports: [
@@ -26,6 +31,7 @@ import { RedirectDirective } from './directives/redirect/redirect.directive';
     HttpModule,
     AppRoutingModule,
     CommonModule,
+    MaterialModule,
   ],
   declarations: [
     AppComponent,
@@ -43,6 +49,10 @@ import { RedirectDirective } from './directives/redirect/redirect.directive';
     CurrentGame,
     CurrentPlayers,
     FeathersService,
+    GamesResolver,
+    GameResolver,
+    PlayersResolver,
+    GameStartedGuard,
   ],
   bootstrap: [AppComponent],
 })

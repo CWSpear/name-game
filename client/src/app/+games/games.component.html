@@ -1,5 +1,23 @@
-<div *ngFor="let game of games">
-  <a [routerLink]="[game.id]">{{ game.name }}</a>
+<md-list>
+  <h3 md-subheader>Game List</h3>
+  <md-list-item *ngFor="let game of games">
+    <div md-line>
+      <button md-raised-button color="primary" [routerLink]="[game.id]">
+        Join {{ game.name }}
+      </button>
+    </div>
+    <button md-mini-fab color="warn" (click)="removeGame(game.id)" *ngIf="game.owner === token">
+      <md-icon>delete</md-icon>
+    </button>
+  </md-list-item>
 
-  <button (click)="removeGame(game.id)" *ngIf="game.owner === token">&times;</button>
-</div>
+  <md-list-item *ngIf="games.length === 0">
+    <div md-line>
+      There are no games started right now.
+
+      <button md-raised-button color="accent" [routerLink]="'/new-game/'">
+        New Game
+      </button>
+    </div>
+  </md-list-item>
+</md-list>

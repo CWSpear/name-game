@@ -1,15 +1,23 @@
-<div *ngIf="players && game && !game?.hidden">
-  <h2>
-    {{ players[game.position]?.name }}
-  </h2>
+<div class="flex center message" *ngIf="!game.hidden && !game.started">
+  <div>
+    <p>Game will begin once the moderator hits "Start Game"</p>
 
-  <div *ngIf="token === game.owner">
-    <button (click)="showPrevPlayer()" [disabled]="game.position === 0">Prev</button>
-    <button (click)="showNextPlayer()" [disabled]="game.position === players?.length - 1">Next</button>
-    <button (click)="hideGame()" *ngIf="game.position === players?.length - 1">Hide</button>
+    <button *ngIf="token === game.owner" md-raised-button color="primary" (click)="startGame()">Start Game</button>
   </div>
 </div>
 
-<div *ngIf="game?.hidden">
-  Names are hidden now that they've been read.
+<div *ngIf="game.started && !game.hidden">
+  <div class="name center">
+    <span>{{ players[game.position].name }}</span>
+  </div>
+
+  <div class="flex" *ngIf="token === game.owner">
+    <button md-raised-button (click)="showPrevPlayer()" [disabled]="game.position === 0">Prev</button>
+    <button md-raised-button color="warn" (click)="hideGame()" *ngIf="game.position === players?.length - 1">Hide</button>
+    <button md-raised-button (click)="showNextPlayer()" [disabled]="game.position === players?.length - 1">Next</button>
+  </div>
+</div>
+
+<div class="flex center message" *ngIf="game.hidden && game.started">
+  <span>Names are hidden now that they've been read.</span>
 </div>

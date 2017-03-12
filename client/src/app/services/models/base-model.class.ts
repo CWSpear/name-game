@@ -28,11 +28,8 @@ export class BaseModelService<T> implements Service<T> {
 
   on(event: string | symbol, listener: Function): this {
     this.service.on(event, (...result) => {
-      console.log(event, 'triggered');
       this.zone.run(() => listener(...result));
     });
-
-    console.log(event, 'registered');
 
     return this;
   }

@@ -1,21 +1,24 @@
-<p>
-  Let's play {{ game?.name }}
-</p>
+<h2>
+  Let's Play {{ game.name }} Name Game
+</h2>
 
 <p>
-  Number of players playing: {{ players?.length }}
+  Number of players playing:
+  <md-chip-list>
+    <md-chip color="primary" selected="true">{{ players.length }}</md-chip>
+  </md-chip-list>
 </p>
 
 <form (ngSubmit)="addPlayer(playerName)">
-  <label for="name">
-    Name
-    <input type="text" id="name" name="player" #playerName />
-  </label>
-  <button type="submit">Submit</button>
+  <md-input-container>
+    <input mdInput type="text" placeholder="What is your name?" name="playerName" #playerName />
+  </md-input-container>
+
+  <button md-raised-button color="accent" type="submit">Submit</button>
 </form>
 
-<div *ngIf="game?.started">
+<div *ngIf="game.started">
   <div appRedirect [commands]="['play']">Test</div>
 </div>
 
-<button *ngIf="token === game?.owner" (click)="startGame()">Start Game</button>
+<button md-raised-button [disabled]="players.length < 5" color="primary" *ngIf="token === game.owner" (click)="startGame()">Start Game</button>
