@@ -19,7 +19,7 @@
     "jshint": "jshint src/. test/. --config",
     "watch": "nodemon --watch 'src/**/*.ts' --ignore 'src/**/*.spec.ts' --exec 'ts-node' src/index.ts",
     "start": "npm run serve",
-    "build": "tsc src/index.ts",
+    "build": "tsc",
     "serve": "node dist/index"
   },
   "dependencies": {
