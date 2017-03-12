@@ -1,3 +1,22 @@
+:host {
+  display: flex;
+  flex-direction: column;
+}
+
 [md-line] {
   padding: 16px !important;
+}
+
+.no-games {
+  flex-grow: 1;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+
+  p {
+    margin-top: 0;
+  }
 }

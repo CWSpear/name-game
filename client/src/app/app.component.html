@@ -3,11 +3,13 @@
   Name Game
 </md-toolbar>
 
-<div class="page-loading" *ngIf="loading">
-  <!-- show something fancy here, here with Angular 2 Material's loading bar or circle -->
-  <md-progress-spinner mode="indeterminate"></md-progress-spinner>
-</div>
+<div class="page">
+  <div class="page-loading" *ngIf="loading">
+    <!-- show something fancy here, here with Angular 2 Material's loading bar or circle -->
+    <md-progress-spinner mode="indeterminate"></md-progress-spinner>
+  </div>
 
-<div [hidden]="loading">
-  <router-outlet></router-outlet>
+  <div class="router-outlet-container" [hidden]="loading">
+    <router-outlet></router-outlet>
+  </div>
 </div>

@@ -1,3 +1,31 @@
 @import '~@angular/material/core/theming/prebuilt/deeppurple-amber';
+//@import '~@angular/material/core/theming/prebuilt/indigo-pink';
+//@import '~@angular/material/core/theming/prebuilt/pink-bluegrey';
+//@import '~@angular/material/core/theming/prebuilt/purple-green';
 
-body { font-family: Roboto, Arial, sans-serif; }
+html {
+  min-height: 100%;
+}
+
+body {
+  min-height: 100%;
+  margin: 0;
+  font-family: Roboto, Arial, sans-serif;
+}
+
+// container base styles
+.router-outlet-container {
+  flex-grow: 1;
+  align-self: stretch;
+  display: flex;
+
+  &[hidden] {
+    display: none;
+  }
+
+  > * {
+    display: block;
+    align-self: stretch;
+    flex-grow: 1;
+  }
+}

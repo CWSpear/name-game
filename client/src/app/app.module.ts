@@ -23,6 +23,7 @@ import { GamesResolver } from './services/resolvers/games-resolver/games-resolve
 import { GameResolver } from './services/resolvers/game-resolver/game-resolver.service';
 import { PlayersResolver } from './services/resolvers/players-resolver/players-resolver.service';
 import { GameStartedGuard } from './services/guards/game-started-guard/game-started-guard.service';
+import { PagerComponent } from './pager/pager.component';
 
 @NgModule({
   imports: [
@@ -41,6 +42,7 @@ import { GameStartedGuard } from './services/guards/game-started-guard/game-star
     GameComponent,
     PlayGameComponent,
     RedirectDirective,
+    PagerComponent,
   ],
   providers: [
     UserService,

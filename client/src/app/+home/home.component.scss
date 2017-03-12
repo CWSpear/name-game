@@ -1,3 +1,15 @@
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  align-self: stretch;
+}
+
+md-list {
+  padding-top: 0 !important;
+}
+
 md-list-item {
   display: flex !important;
   justify-content: center;

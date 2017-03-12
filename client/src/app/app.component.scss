@@ -1,3 +1,15 @@
+:host {
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.page {
+  flex-grow: 1;
+  display: flex;
+}
+
 .home-icon {
   padding: 0 14px 0 0;
   cursor: pointer;
@@ -7,5 +19,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: calc(100vh - 80px);
+  flex-grow: 1;
+}
+
+router-outlet {
+  display: none !important;
 }

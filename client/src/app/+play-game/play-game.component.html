@@ -1,4 +1,4 @@
-<div class="flex center message" *ngIf="!game.hidden && !game.started">
+<div class="container center" *ngIf="!game.hidden && !game.started">
   <div>
     <p>Game will begin once the moderator hits "Start Game"</p>
 
@@ -6,18 +6,21 @@
   </div>
 </div>
 
-<div *ngIf="game.started && !game.hidden">
+<div class="container" *ngIf="game.started && !game.hidden">
   <div class="name center">
     <span>{{ players[game.position].name }}</span>
   </div>
 
-  <div class="flex" *ngIf="token === game.owner">
-    <button md-raised-button (click)="showPrevPlayer()" [disabled]="game.position === 0">Prev</button>
-    <button md-raised-button color="warn" (click)="hideGame()" *ngIf="game.position === players?.length - 1">Hide</button>
-    <button md-raised-button (click)="showNextPlayer()" [disabled]="game.position === players?.length - 1">Next</button>
+  <div class="flex controls">
+    <div *ngIf="token !== game.owner"><!-- helps with spacing --></div>
+    <button *ngIf="token === game.owner" md-raised-button (click)="showPrevPlayer()" [disabled]="game.position === 0">Prev</button>
+    <button *ngIf="token === game.owner && game.position === players?.length - 1" md-raised-button color="warn" (click)="hideGame()">Hide</button>
+    <app-pager *ngIf="token !== game.owner || game.position !== players?.length - 1" [size]="players.length" [current]="game.position"></app-pager>
+    <button *ngIf="token === game.owner" md-raised-button (click)="showNextPlayer()" [disabled]="game.position === players?.length - 1">Next</button>
+    <div *ngIf="token !== game.owner"><!-- helps with spacing --></div>
   </div>
 </div>
 
-<div class="flex center message" *ngIf="game.hidden && game.started">
+<div class="container center" *ngIf="game.hidden && game.started">
   <span>Names are hidden now that they've been read.</span>
 </div>
