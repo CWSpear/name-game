@@ -1,9 +1,9 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './app/home/home.component';
-import { GamesComponent } from './app/games/games.component';
-import { NewGameComponent } from './app/new-game/new-game.component';
-import { GameComponent } from './app/game/game.component';
-import { PlayGameComponent } from './app/play-game/play-game.component';
+import { HomeComponent } from './app/+home/home.component';
+import { GamesComponent } from './app/+games/games.component';
+import { NewGameComponent } from './app/+new-game/new-game.component';
+import { GameComponent } from './app/+game/game.component';
+import { PlayGameComponent } from './app/+play-game/play-game.component';
 
 export const routes: Routes = [
   {

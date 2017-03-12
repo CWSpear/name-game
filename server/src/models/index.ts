@@ -14,11 +14,7 @@ db.sync().then(() => {
 });
 
 export function setUpRoutes(app: Application) {
-  app.use('/api/games', service({
-    Model: GameModel,
-  }));
+  app.use('/api/games', service({ Model: GameModel }));
 
-  app.use('/api/players', service({
-    Model: PlayerModel,
-  }));
+  app.use('/api/players', service({ Model: PlayerModel }));
 }

@@ -21,6 +21,10 @@ export const GameModel = db.define<Instance<IGame>, IGame>('game', {
     type: db.Sequelize.BOOLEAN,
     defaultValue: false,
   },
+  hidden: {
+    type: db.Sequelize.BOOLEAN,
+    defaultValue: false,
+  },
   owner: {
     type: db.Sequelize.STRING,
   },

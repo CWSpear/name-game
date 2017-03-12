@@ -1,3 +1,5 @@
 <div *ngFor="let game of games">
   <a [routerLink]="[game.id]">{{ game.name }}</a>
+
+  <button (click)="removeGame(game.id)" *ngIf="game.owner === token">&times;</button>
 </div>

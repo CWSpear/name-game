@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 
 import { gameService } from '../../models/index';
 import { IGame } from '../../../types';
-import { UserService } from '../../services/user/user.service';
+import { UserService } from '../services/user/user.service';
 
 @Component({
   selector: 'app-new-game',

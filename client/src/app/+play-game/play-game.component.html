@@ -1,0 +1,15 @@
+<div *ngIf="players && game && !game?.hidden">
+  <h2>
+    {{ players[game.position]?.name }}
+  </h2>
+
+  <div *ngIf="token === game.owner">
+    <button (click)="showPrevPlayer()" [disabled]="game.position === 0">Prev</button>
+    <button (click)="showNextPlayer()" [disabled]="game.position === players?.length - 1">Next</button>
+    <button (click)="hideGame()" *ngIf="game.position === players?.length - 1">Hide</button>
+  </div>
+</div>
+
+<div *ngIf="game?.hidden">
+  Names are hidden now that they've been read.
+</div>

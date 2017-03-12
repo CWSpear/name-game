@@ -2,7 +2,9 @@
   Let's play {{ game?.name }}
 </p>
 
-Number of players playing: {{ players?.length }}
+<p>
+  Number of players playing: {{ players?.length }}
+</p>
 
 <form (ngSubmit)="addPlayer(playerName)">
   <label for="name">
@@ -12,5 +14,8 @@ Number of players playing: {{ players?.length }}
   <button type="submit">Submit</button>
 </form>
 
+<div *ngIf="game?.started">
+  <div appRedirect [commands]="['play']">Test</div>
+</div>
 
-<button *ngIf="token === game?.owner" [routerLink]="['play']">Start Game</button>
+<button *ngIf="token === game?.owner" (click)="startGame()">Start Game</button>
