@@ -59,7 +59,8 @@ export class BaseModelService<T> implements Service<T> {
         case ListEvents.created:
           this.on(eventType, (data: T) => {
             if (!matcher || matcher(data)) {
-              list.push(data);
+              const index = _.sortedIndexBy(list, data, 'id');
+              list.splice(index, 0, data);
             }
           });
           break;
