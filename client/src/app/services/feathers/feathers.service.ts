@@ -12,7 +12,7 @@ export class FeathersService {
   client: feathers.Application;
 
   constructor() {
-    const socket = io('http://localhost:7331');
+    const socket = io('https://namegame.cwspear.ninja');
     const client = feathers();
 
     // client.configure(rest('http://localhost:7331').superagent(superagent));

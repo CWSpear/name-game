@@ -11,7 +11,7 @@
 
 <form (ngSubmit)="addPlayer(playerName)">
   <md-input-container>
-    <input mdInput type="text" placeholder="What is your name?" name="playerName" #playerName />
+    <input mdInput autocomplete="off" type="text" placeholder="What is your name?" name="playerName" #playerName />
   </md-input-container>
 
   <button md-raised-button color="accent" type="submit">Submit</button>

@@ -8,7 +8,8 @@ import * as io from 'socket.io-client';
 
 import { IGame, IPlayer } from '../../types';
 
-const socket = io('http://localhost:7331');
+// @TODO get path dynamically
+const socket = io('https://namegame.cwspear.ninja/');
 export const client = feathers();
 
 // client.configure(rest('http://localhost:7331').superagent(superagent));

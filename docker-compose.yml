@@ -2,9 +2,32 @@ version: '2'
 
 services:
   database:
+    restart: always
     image: postgres
     ports:
       - 5432:5432
     environment:
       POSTGRES_USER: namegame
       POSTGRES_PASSWORD: 02892gfh20-rikjfg2023ifri2
+
+  server:
+    restart: always
+    build:
+      context: .
+    ports:
+      - 7331:7331
+    links:
+      - database
+    networks:
+      - default
+      - proxy # only the container that interfaces with the proxy needs this
+    environment:
+      VIRTUAL_HOST: namegame.cwspear.ninja
+      LETSENCRYPT_HOST: namegame.cwspear.ninja
+      LETSENCRYPT_EMAIL: cameron@matchbooklab.com
+
+networks:
+  default:
+  proxy:
+    external:
+      name: pandora_proxy
