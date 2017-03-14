@@ -1,13 +1,10 @@
-import { Component, OnInit, NgZone } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import * as Bluebird from 'bluebird';
 
 import { IGame, IPlayer } from '../../../types';
 import { UserService } from '../services/user/user.service';
-import { GameService } from '../services/models/game/game.service';
-import { CurrentGame } from '../services/current-game/current-game.service';
-import { PlayerService } from '../services/models/player/player.service';
-import { CurrentPlayers } from '../services/current-players/current-players.service';
+import { Game } from '../services/models/game/game.service';
+import { Player } from '../services/models/player/player.service';
 
 @Component({
   selector: 'app-game',
@@ -20,32 +17,30 @@ export class GameComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private gameService: GameService,
-    private playerService: PlayerService,
-    private currentGame: CurrentGame,
-    private currentPlayers: CurrentPlayers,
+    private gameModel: Game,
+    private playerModel: Player,
     user: UserService,
   ) {
     this.token = user.getToken();
   }
 
   get game(): IGame {
-    return this.currentGame.game;
+    return this.gameModel.currentGame;
   }
 
   get players(): IPlayer[] {
-    return this.currentPlayers.players;
+    return this.playerModel.currentPlayers;
   }
 
   async ngOnInit() {}
 
   async addPlayer(field) {
-    await this.playerService.create(<IPlayer>{ name: field.value, gameId: this.game.id });
+    await this.playerModel.service.create(<IPlayer>{ name: field.value, gameId: this.game.id });
     field.value = '';
   }
 
   async startGame() {
-    await this.gameService.patch(this.game.id, { started: true });
+    await this.gameModel.service.patch(this.game.id, { started: true });
 
     await this.router.navigate(['play'], { relativeTo: this.route });
   }

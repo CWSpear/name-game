@@ -13,11 +13,9 @@ import { NewGameComponent } from './+new-game/new-game.component';
 import { GameComponent } from './+game/game.component';
 import { UserService } from './services/user/user.service';
 import { PlayGameComponent } from './+play-game/play-game.component';
-import { GameService } from './services/models/game/game.service';
-import { PlayerService } from './services/models/player/player.service';
-import { CurrentGame } from './services/current-game/current-game.service';
+import { Game } from './services/models/game/game.service';
+import { Player } from './services/models/player/player.service';
 import { FeathersService } from './services/feathers/feathers.service';
-import { CurrentPlayers } from './services/current-players/current-players.service';
 import { RedirectDirective } from './directives/redirect/redirect.directive';
 import { GamesResolver } from './services/resolvers/games-resolver/games-resolver.service';
 import { GameResolver } from './services/resolvers/game-resolver/game-resolver.service';
@@ -46,10 +44,8 @@ import { PagerComponent } from './pager/pager.component';
   ],
   providers: [
     UserService,
-    GameService,
-    PlayerService,
-    CurrentGame,
-    CurrentPlayers,
+    Game,
+    Player,
     FeathersService,
     GamesResolver,
     GameResolver,

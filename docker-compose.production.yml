@@ -1,0 +1,21 @@
+version: '2'
+
+services:
+  database:
+    restart: always
+
+  server:
+    restart: always
+    networks:
+      - default
+      - proxy # only the container that interfaces with the proxy needs this
+    environment:
+      VIRTUAL_HOST: namegame.cwspear.ninja
+      LETSENCRYPT_HOST: namegame.cwspear.ninja
+      LETSENCRYPT_EMAIL: cameron@matchbooklab.com
+
+networks:
+  default:
+  proxy:
+    external:
+      name: pandora_proxy

@@ -1,22 +1,24 @@
 import { Injectable, NgZone } from '@angular/core';
-import { BaseModelService, ListEvents } from '../base-model.class';
-import { CurrentPlayers } from '../../current-players/current-players.service';
+import { BaseModelService } from '../base-model.class';
 import { IPlayer } from '../../../../../types';
 import { FeathersService } from '../../feathers/feathers.service';
+import { ListEvents } from '../../../enums/list-events.enum';
 
 @Injectable()
-export class PlayerService extends BaseModelService<IPlayer> {
-  constructor(private currentPlayers: CurrentPlayers, feathersService: FeathersService, zone: NgZone) {
+export class Player extends BaseModelService<IPlayer> {
+  currentPlayers: IPlayer[];
+  currentGameId: string;
+
+  constructor(feathersService: FeathersService, zone: NgZone) {
     super(zone);
 
     this.service = feathersService.client.service('api/players');
   }
 
-  async setCurrentGameId(id: string): Promise<void> {
-    this.currentPlayers.players = await this.find({ query: { gameId: id, $sort: { id: 1 } } });
+  async setCurrentPlayersByGameId(gameId: string): Promise<void> {
+    this.currentPlayers = <IPlayer[]>await this.service.find({ query: { gameId, $sort: { id: 1 } } });
+    this.currentGameId = gameId;
 
-    this.subscribeList([ListEvents.created], this.currentPlayers.players, (player) => player.gameId === id);
-
-    return super.setCurrentGameId(id);
+    this.subscribeList([ListEvents.created], this.currentPlayers, (player) => player.gameId === gameId);
   }
 }

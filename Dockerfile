@@ -16,5 +16,6 @@ RUN cd ./server/ && yarn run build
 WORKDIR /name-game/server/
 EXPOSE 7331
 ENV PORT 7331
+ENV DOCKER 1
 
 CMD yarn run serve
