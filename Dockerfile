@@ -9,7 +9,8 @@ COPY ./client/package.json ./client/yarn.lock ./client/
 RUN cd ./client/ && NODE_ENV=dev yarn
 
 COPY ./ ./
-RUN cd ./client/ && yarn run build
+ARG env
+RUN cd ./client/ && yarn run build -- -e "$env"
 RUN cd ./server/ && yarn run build
 
 WORKDIR /name-game/server/

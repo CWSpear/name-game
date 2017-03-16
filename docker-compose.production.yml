@@ -1,4 +1,4 @@
-version: '2'
+version: '3'
 
 services:
   database:
@@ -6,6 +6,9 @@ services:
 
   server:
     restart: always
+    build:
+      args:
+        env: production
     networks:
       - default
       - proxy # only the container that interfaces with the proxy needs this
