@@ -41,8 +41,6 @@ if (config.isDocker) {
 
   // fallback to SPA root
   app.use(fallback('index.html', { root }));
-
-  console.log('static');
 }
 
 // Register a nicer error handler than the default Express one

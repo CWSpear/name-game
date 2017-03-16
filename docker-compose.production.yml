@@ -13,6 +13,7 @@ services:
       VIRTUAL_HOST: namegame.cwspear.ninja
       LETSENCRYPT_HOST: namegame.cwspear.ninja
       LETSENCRYPT_EMAIL: cameron@matchbooklab.com
+      NODE_ENV: production
 
 networks:
   default:

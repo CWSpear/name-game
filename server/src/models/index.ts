@@ -3,7 +3,6 @@ import { Application } from 'feathers';
 import * as service from 'feathers-sequelize';
 import { config } from '../config';
 
-console.log('databaseUrl', config.databaseUrl);
 export const db = new Sequelize(config.databaseUrl);
 
 import { GameModel } from './game';
