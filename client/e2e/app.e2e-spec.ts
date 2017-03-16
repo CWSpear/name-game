@@ -7,8 +7,8 @@ describe('name-game App', () => {
     page = new NameGamePage();
   });
 
-  it('should display message saying app works', () => {
+  it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual(' works!');
+    expect(page.getParagraphText()).toEqual('Welcome to the Name Game web app!');
   });
 });
