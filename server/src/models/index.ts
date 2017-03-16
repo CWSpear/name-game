@@ -9,7 +9,7 @@ import { GameModel } from './game';
 import { PlayerModel } from './player';
 
 console.log(`sync'ing DB...`);
-retry(3, 3333, () => db.sync()).then(() => {
+retry(3, 5000, () => db.sync()).then(() => {
   console.log(`DB sync'd`);
 }).catch(err => {
   console.error('DB sync error', err);
