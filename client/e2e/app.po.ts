@@ -1,11 +1,11 @@
 import { browser, element, by } from 'protractor';
 
 export class NameGamePage {
-  navigateTo() {
+  static navigateTo() {
     return browser.get('/');
   }
 
-  getParagraphText() {
+  static getHeaderText() {
     return element(by.css('app-root h1')).getText();
   }
 }
