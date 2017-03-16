@@ -12,12 +12,12 @@ import { ListEvents } from '../enums/list-events.enum';
   styleUrls: ['./games.component.scss'],
 })
 export class GamesComponent implements OnInit {
-  public games: IGame[];
+  public games: IGame[] = [];
   public token: string;
 
   constructor(private gameModel: Game, route: ActivatedRoute, user: UserService) {
       this.token = user.getToken();
-      this.games = route.snapshot.data['games'];
+      this.games = route.snapshot.data['games'] || [];
   }
 
   async ngOnInit() {

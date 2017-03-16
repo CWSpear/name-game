@@ -1,11 +1,15 @@
 import { TestBed, inject } from '@angular/core/testing';
 
 import { Game } from './game.service';
+import { Feathers } from '../../feathers/feathers.service';
 
 describe('Game', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [Game]
+      providers: [
+        Game,
+        Feathers,
+      ],
     });
   });
 

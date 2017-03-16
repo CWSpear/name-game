@@ -15,7 +15,7 @@ import { UserService } from './services/user/user.service';
 import { PlayGameComponent } from './+play-game/play-game.component';
 import { Game } from './services/models/game/game.service';
 import { Player } from './services/models/player/player.service';
-import { FeathersService } from './services/feathers/feathers.service';
+import { Feathers } from './services/feathers/feathers.service';
 import { RedirectDirective } from './directives/redirect/redirect.directive';
 import { GamesResolver } from './services/resolvers/games-resolver/games-resolver.service';
 import { GameResolver } from './services/resolvers/game-resolver/game-resolver.service';
@@ -46,7 +46,7 @@ import { PagerComponent } from './pager/pager.component';
     UserService,
     Game,
     Player,
-    FeathersService,
+    Feathers,
     GamesResolver,
     GameResolver,
     PlayersResolver,

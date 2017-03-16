@@ -7,7 +7,7 @@ import * as io from 'socket.io-client';
 import { environment } from '../../../environments/environment';
 
 @Injectable()
-export class FeathersService {
+export class Feathers {
   client: feathers.Application;
 
   constructor() {

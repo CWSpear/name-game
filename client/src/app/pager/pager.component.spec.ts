@@ -7,10 +7,11 @@ describe('PagerComponent', () => {
   let fixture: ComponentFixture<PagerComponent>;
 
   beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ PagerComponent ]
-    })
-    .compileComponents();
+    TestBed
+      .configureTestingModule({
+        declarations: [PagerComponent],
+      })
+      .compileComponents();
   }));
 
   beforeEach(() => {

@@ -1,18 +1,18 @@
 import { Injectable, NgZone } from '@angular/core';
 
 import { IGame } from '../../../../../types';
-import { FeathersService } from '../../feathers/feathers.service';
+import { Feathers } from '../../feathers/feathers.service';
 import { BaseModelService } from '../base-model.class';
 import { OneEvents } from '../../../enums/one-event.enum';
 
 @Injectable()
 export class Game extends BaseModelService<IGame> {
-  currentGame: IGame;
+  currentGame: IGame = <IGame>{};
 
-  constructor(feathersService: FeathersService, zone: NgZone) {
+  constructor(feathers: Feathers, zone: NgZone) {
     super(zone);
 
-    this.service = feathersService.client.service('api/games');
+    this.service = feathers.client.service('api/games');
   }
 
   async setCurrentGameById(id: string): Promise<void> {

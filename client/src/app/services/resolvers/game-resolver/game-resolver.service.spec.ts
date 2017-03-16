@@ -1,11 +1,17 @@
 import { TestBed, inject } from '@angular/core/testing';
 
 import { GameResolver } from './game-resolver.service';
+import { Game } from '../../models/game/game.service';
+import { Feathers } from '../../feathers/feathers.service';
 
 describe('GameStartedGuard', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [GameResolver]
+      providers: [
+        GameResolver,
+        Game,
+        Feathers,
+      ],
     });
   });
 

@@ -5,7 +5,7 @@ export declare interface IGame {
   started?: boolean;
   position?: number;
   hidden?: boolean;
-  players?: IPlayer[];
+  // players?: IPlayer[];
   createdAt?: string;
   updatedAt?: string;
 }
