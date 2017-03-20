@@ -5,15 +5,11 @@ export declare interface IGame {
   started?: boolean;
   position?: number;
   hidden?: boolean;
-  // players?: IPlayer[];
-  createdAt?: string;
-  updatedAt?: string;
+  players?: IPlayer[];
 }
 
 export declare interface IPlayer {
   id?: string;
   name: string;
   gameId: string;
-  createdAt?: string;
-  updatedAt?: string;
 }

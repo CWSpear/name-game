@@ -28,6 +28,12 @@ export const GameModel = db.define<Instance<IGame>, IGame>('game', {
   owner: {
     type: db.Sequelize.STRING,
   },
+}, {
+  // we don't use timestamps, so let's not bother
+  timestamps: false,
+  defaultScope: {
+    include: [{ all: true }],
+  },
 });
 
 GameModel.hasMany(PlayerModel, {

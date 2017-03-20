@@ -12,4 +12,7 @@ export const PlayerModel = db.define<Instance<IPlayer>, IPlayer>('player', {
   name: {
     type: db.Sequelize.STRING,
   },
+}, {
+  // we don't use timestamps, so let's not bother
+  timestamps: false,
 });
