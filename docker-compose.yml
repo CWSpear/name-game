@@ -6,9 +6,20 @@ services:
     environment:
       POSTGRES_USER: namegame
       POSTGRES_PASSWORD: 02892gfh20-rikjfg2023ifri2
+    logging:
+      driver: json-file
+      options:
+        max-size: 100k
+        max-file: '20'
 
   server:
+    image: docker.matchbooklab.com/namegame/server
     build:
       context: .
     links:
       - database
+    logging:
+      driver: json-file
+      options:
+        max-size: 100k
+        max-file: '20'

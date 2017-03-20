@@ -34,7 +34,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 setUpRoutes(app);
 
 if (config.isDocker) {
-  const root = path.join(__dirname, '../../client/dist');
+  const root = path.join(__dirname, '../client');
 
   // serve static
   app.use(feathers.static(root));

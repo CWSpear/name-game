@@ -1,9 +1,5 @@
-server/node_modules
-server/dist
-server/.idea
-
-client/node_modules
-client/dist
-client/.idea
-
+node_modules
+dist
 .idea
+coverage
+e2e/dist
