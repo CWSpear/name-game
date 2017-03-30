@@ -7,7 +7,7 @@ RUN NODE_ENV=dev yarn
 
 COPY ./ ./
 ARG env
-RUN yarn run build -- -- -e "$env" -prod
+RUN yarn run build -- -- -e "$env" -prod --aot
 
 EXPOSE 7331
 ENV PORT 7331

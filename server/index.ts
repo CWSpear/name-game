@@ -2,6 +2,7 @@ import * as path from 'path';
 import * as feathers from 'feathers';
 import * as socketio from 'feathers-socketio';
 import * as rest from 'feathers-rest';
+import * as compress from 'compression';
 import * as cors from 'cors';
 import * as bodyParser from 'body-parser';
 import { setUpRoutes } from './models';
@@ -22,7 +23,11 @@ app.configure(rest());
 // Configure Socket.io real-time APIs
 app.configure(socketio());
 
+// use cors is not running in Docker
 if (!config.isDocker) app.use(cors({ origin: config.clientUrl }));
+
+// use compression
+app.use(compress());
 
 // Parse HTTP JSON bodies
 app.use(bodyParser.json());
