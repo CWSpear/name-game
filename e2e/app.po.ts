@@ -12,6 +12,14 @@ export class NameGamePage {
     return (await browser.getCurrentUrl()).replace(browser.baseUrl, '');
   }
 
+  static newGameForm() {
+    return by.css('[placeholder="Name the game"]');
+  }
+
+  static elementIsPresent(elem) {
+    return browser.isElementPresent(elem);
+  }
+
   static clickNewGame() {
     return element(by.css('.e2e-create-game-link')).click();
   }
