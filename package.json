@@ -13,7 +13,9 @@
     "test": "npm run ng:test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "serve": "node dist/server/index"
+    "serve": "node dist/server/index",
+    "push": "docker-compose -f docker-compose.yml -f docker-compose.production.yml build && docker-compose -f docker-compose.yml -f docker-compose.production.yml push",
+    "deploy": "docker-compose -f docker-compose.yml -f docker-compose.production.yml pull && docker-compose -f docker-compose.yml -f docker-compose.production.yml up -d"
   },
   "private": true,
   "dependencies": {
