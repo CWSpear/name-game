@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 
-import * as feathers from 'feathers/client';
-import * as socketio from 'feathers-socketio/client';
-import * as io from 'socket.io-client';
+import feathers from 'feathers/client';
+import socketio from 'feathers-socketio/client';
+import io from 'socket.io-client';
 
 import { environment } from '../../../environments/environment';
 

@@ -1,4 +1,4 @@
-import * as _ from 'lodash';
+import _ from 'lodash';
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({

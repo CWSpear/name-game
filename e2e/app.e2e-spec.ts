@@ -1,28 +1,16 @@
-import { NameGamePage } from './app.po';
-import { async } from '@angular/core/testing';
+const Nightmare = require('nightmare');
+const nightmare = Nightmare({ show: true });
 
-describe('Name Game Web App', () => {
-  it('should display welcome message', () => {
-    NameGamePage.navigateTo();
-    expect(NameGamePage.getHeaderText()).toEqual('Welcome to the Name Game web app!');
+nightmare
+  .goto('http://localhost:1337/')
+  .click('#e2e-create-game-link-button')
+  .type('#e2e-name-the-game-input', 'Test Game')
+  .click('#e2e-submit-new-game-button')
+  .goto('http://localhost:1337/games')
+  .end()
+  .then(function (result) {
+    console.log(result)
+  })
+  .catch(function (error) {
+    console.error('Error:', error);
   });
-
-  it('should navigate to New Game page', (() => {
-    console.info('anything');
-    NameGamePage.navigateTo();
-    NameGamePage.clickNewGame();
-    NameGamePage.browser.wait(() => {
-      // const url = await NameGamePage.browser.getCurrentUrl();
-      // console.info(url);
-      return true;
-      // return NameGamePage.elementIsPresent(NameGamePage.newGameForm());
-      // return url === 'new-game';
-    }, 5000);
-    // console.info('after');
-    // NameGamePage.getCurrentUrl().then(url => {
-    //   console.info(url);
-    // });
-    expect(1).toEqual(1);
-    // NameGamePage.browser.pause();
-  }));
-});

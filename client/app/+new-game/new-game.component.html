@@ -1,7 +1,7 @@
 <form (ngSubmit)="createGame(gameName.value)">
   <md-input-container>
-    <input mdInput autocomplete="off" type="text" placeholder="Name the game" name="game" #gameName />
+    <input mdInput id="e2e-name-the-game-input" autocomplete="off" type="text" placeholder="Name the game" name="game" #gameName />
   </md-input-container>
 
-  <button md-raised-button color="accent" type="submit">Submit</button>
+  <button md-raised-button color="accent" id="e2e-submit-new-game-button" type="submit">Submit</button>
 </form>

@@ -1,17 +1,17 @@
-import * as path from 'path';
-import * as feathers from 'feathers';
-import * as socketio from 'feathers-socketio';
-import * as rest from 'feathers-rest';
-import * as compress from 'compression';
-import * as cors from 'cors';
-import * as bodyParser from 'body-parser';
+import path from 'path';
+import feathers from 'feathers';
+import socketio from 'feathers-socketio';
+import rest from 'feathers-rest';
+import compress from 'compression';
+import cors from 'cors';
+import bodyParser from 'body-parser';
 import { setUpRoutes } from './models';
 import { config } from './config';
 
 const fallback = require('express-history-api-fallback');
 
 
-// import * as handler from'feathers-errors/handler';
+// import handler from'feathers-errors/handler';
 const handler = require('feathers-errors/handler');
 
 // A Feathers app is the same as an Express app

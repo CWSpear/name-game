@@ -1,9 +1,11 @@
-import * as Sequelize from 'sequelize';
+import Bluebird from 'bluebird';
+import Sequelize from 'sequelize';
 import { Application } from 'feathers';
-import * as service from 'feathers-sequelize';
+import service from 'feathers-sequelize';
 import { config } from '../config';
 
-export const db = new Sequelize(config.databaseUrl);
+const url = `postgres://${config.database.username}:${config.database.password}@${config.database.host}:${config.database.port}/${config.database.database}`;
+export const db = new Sequelize(url);
 
 import { GameModel } from './game';
 import { PlayerModel } from './player';
@@ -11,7 +13,7 @@ import { PlayerModel } from './player';
 console.log(`sync'ing DB...`);
 retry(3, 5000, () => db.sync()).then(() => {
   console.log(`DB sync'd`);
-}).catch(err => {
+}, err => {
   console.error('DB sync error', err);
 });
 
@@ -23,7 +25,7 @@ export function setUpRoutes(app: Application) {
 
 async function retry(tries, timeout, fn) {
   try {
-    await fn();
+    return await fn();
   } catch (err) {
     if (tries <= 0) {
       console.log('Out of attempts');
@@ -32,6 +34,7 @@ async function retry(tries, timeout, fn) {
 
     console.log(`Failed, retrying in ${timeout}...`);
 
-    return setTimeout(() => retry(--tries, timeout, fn), timeout);
+    await Bluebird.delay(timeout);
+    return retry(--tries, timeout, fn);
   }
 }

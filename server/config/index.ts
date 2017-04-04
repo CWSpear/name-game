@@ -2,7 +2,13 @@ import { assign } from 'lodash';
 
 export interface IConfig {
   clientUrl: string;
-  databaseUrl: string;
+  database: {
+    host: string;
+    database: string;
+    username: string;
+    password: string;
+    port: number;
+  };
   port: number;
   isDev: boolean;
   isDocker: boolean;
