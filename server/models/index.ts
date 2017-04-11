@@ -1,7 +1,7 @@
 import * as Bluebird from 'bluebird';
 import * as Sequelize from 'sequelize';
 import { Application } from 'feathers';
-import service from 'feathers-sequelize';
+import * as service from 'feathers-sequelize';
 import { config } from '../config';
 
 const url = `postgres://${config.database.username}:${config.database.password}@${config.database.host}:${config.database.port}/${config.database.database}`;
