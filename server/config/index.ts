@@ -1,4 +1,4 @@
-import { assign } from 'lodash';
+import { merge } from 'lodash';
 
 export interface IConfig {
   clientUrl: string;
@@ -17,4 +17,4 @@ export interface IConfig {
 import baseConfig from './base';
 import productionConfig from './production';
 
-export const config = <IConfig>assign(<IConfig>{}, baseConfig, process.env.NODE_ENV === 'production' ? productionConfig : {});
+export const config = <IConfig>merge(<IConfig>{}, baseConfig, process.env.NODE_ENV === 'production' ? productionConfig : {});
