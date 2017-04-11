@@ -1,5 +1,5 @@
-import Bluebird from 'bluebird';
-import Sequelize from 'sequelize';
+import * as Bluebird from 'bluebird';
+import * as Sequelize from 'sequelize';
 import { Application } from 'feathers';
 import service from 'feathers-sequelize';
 import { config } from '../config';
