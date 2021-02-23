@@ -2,10 +2,10 @@ version: '3'
 
 services:
   database:
-    restart: always
+    restart: unless-stopped
 
   server:
-    restart: always
+    restart: unless-stopped
     build:
       args:
         env: production
@@ -13,10 +13,13 @@ services:
       - default
       - proxy # only the container that interfaces with the proxy needs this
     environment:
-      VIRTUAL_HOST: namegame.cwspear.ninja
-      LETSENCRYPT_HOST: namegame.cwspear.ninja
-      LETSENCRYPT_EMAIL: cameron@matchbooklab.com
       NODE_ENV: production
+    labels:
+      traefik.docker.network: pandora_proxy
+      traefik.frontend.rule: Host:namegame.cwspear.ninja
+      traefik.enable: true
+      traefik.port: 7331
+      traefik.http.middlewares.test-compress.compress: true
 
 networks:
   default:
