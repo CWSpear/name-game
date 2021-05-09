@@ -44,7 +44,7 @@
     "feathers-rest": "^1.7.1",
     "feathers-sequelize": "^1.4.5",
     "feathers-socketio": "^1.5.2",
-    "lodash": "^4.17.4",
+    "lodash": "^4.17.21",
     "pg": "^6.1.5",
     "pg-hstore": "^2.3.2",
     "rxjs": "^5.2.0",
